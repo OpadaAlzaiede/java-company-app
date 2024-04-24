@@ -2,13 +2,15 @@
 package com.mycompany.company.system;
 
 
-public class Employee {
+public class Employee{
     
     public String name;
     private String id;
     private double salary;
     public int age;
     private Address address;
+    private AddressFormatter addressFormatter;
+
 
     public Employee(String name, String id, double salary, int age, Address address) {
         this.name = name;
@@ -43,5 +45,14 @@ public class Employee {
         this.address = address;
     }
     
+    public String getFormattedAddress() {
+        if(this.addressFormatter == null) {
+            return "";
+        }
+        return addressFormatter.formatAddress(address);
+    }
     
+    public void setAddressFormatter(AddressFormatter addressFormatter) {
+        this.addressFormatter = addressFormatter;
+    }
 }

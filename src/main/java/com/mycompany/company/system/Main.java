@@ -12,13 +12,18 @@ public class Main {
         Employee dept1head = new Employee("TEST2", "12AE", 300, 50, add1);
         Employee dept2head = new Employee("TEST3", "13AE", 300, 50, add1);
         
-        Employee officeemp1 = new Employee("TEST4", "14AE", 100, 30, add1);
-        Employee officeemp2 = new Employee("TEST5", "15AE", 100, 30, add1);
-        Employee officeemp3 = new Employee("TEST6", "16AE", 100, 30, add1);
-        Employee officeemp4 = new Employee("TEST7", "17AE", 100, 30, add1);
+        EmployeeBuilder empBuilder = new EmployeeBuilder();
+        
+        Employee officeemp1 = empBuilder.setName("TEST1").setId("120AB").setAddress(add1).setAge(30).setSalary(200).build();
+        Employee officeemp2 = empBuilder.setName("TEST2").setId("121AB").setAddress(add1).setAge(31).setSalary(300).build();
+        Employee officeemp3 = empBuilder.setName("TEST3").setId("122AB").setAddress(add1).setAge(32).setSalary(400).build();
+        Employee officeemp4 = empBuilder.setName("TEST4").setId("123AB").setAddress(add1).setAge(33).setSalary(500).build();
+        
+        officeemp1.setAddressFormatter(new CustomAddressFormatter());
+        officeemp4 = (new SeniorEmployeeDecorator(officeemp4)).getEmployee();
 
         // Create the company
-        Company co = new Company("TEST COMPANY", companyHead);
+        Company co = Company.getCompany("TEST COMPANY", companyHead);
         
         // Create departments
         Department dept1 = new Department("TEST DEPT1", add1, dept1head);
