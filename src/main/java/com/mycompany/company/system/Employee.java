@@ -9,6 +9,7 @@ public class Employee{
     private double salary;
     public int age;
     private Address address;
+    private AddressFormatter addressFormatter;
 
 
     public Employee(String name, String id, double salary, int age, Address address) {
@@ -44,4 +45,11 @@ public class Employee{
         this.address = address;
     }
 
+    public void setAddressFormatter(AddressFormatter addressFormatter) {
+        this.addressFormatter = addressFormatter;
+    }
+
+    public String formatAddress() {
+        return this.addressFormatter.formatAddress();
+    }
 }
