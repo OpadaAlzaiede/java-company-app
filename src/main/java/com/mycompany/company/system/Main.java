@@ -20,7 +20,6 @@ public class Main {
         Employee officeemp4 = empBuilder.setName("TEST4").setId("123AB").setAddress(add1).setAge(33).setSalary(500).build();
         
         officeemp1.setAddressFormatter(new CustomAddressFormatter());
-        officeemp4 = (new SeniorEmployeeDecorator(officeemp4)).getEmployee();
 
         // Create the company
         Company co = Company.getCompany("TEST COMPANY", companyHead);
