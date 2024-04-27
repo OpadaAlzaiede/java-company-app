@@ -50,6 +50,6 @@ public class Employee{
     }
 
     public String formatAddress() {
-        return this.addressFormatter.formatAddress();
+        return this.addressFormatter.formatAddress(this.address);
     }
 }
